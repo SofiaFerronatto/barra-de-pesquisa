@@ -7,9 +7,11 @@ const produtos = [
   { nome: "SSD NVMe 1TB", preco: "R$ 600", categoria: "Armazenamento" }
 ];
 
-function renderizarProdutos(lista) {
-    const container = document.getElementById("listaProdutos");
-    container.innerHTML = ""; // Limpa a tela
+const grid = document.getElementById("listaProdutos")
+const imputBusca = document.getElementById("busca")
+
+function renderizar(lista) {
+ grid.innerHTML = ""
  
 
     if (lista.length === 0) {
@@ -17,28 +19,26 @@ function renderizarProdutos(lista) {
         return;
     }
  
-    lista.forEach(produto => {
-     
-        container.innerHTML += `
+    lista.forEach(item => {
+     const cardHTML = `
             <div class="card">
-                <h3>${produto.nome}</h3>
-                <p>Preço: ${produto.preco}</p>
-                <span>Categoria: ${produto.categoria}</span>
+                <h3>${item.nome}</h3>
+                <span class="Categoria" ${item.categoria}</span>
+                <p class="preco"> ${item.preco}</p>
+              
             </div>
         `;
     });
 }
  
-const inputBusca = document.getElementById("campoBusca");
  
-inputBusca.addEventListener("input", (e) => {
-    const termoBusca = e.target.value.toLowerCase(); //
+inputBusca.addEventListener("input", () => {
+    const termo = imputBusca.value.toLowerCase()
    
-    const produtosFiltrados = produtos.filter(produto =>
-        produto.nome.toLowerCase().includes(termoBusca) // [cite: 33]
-    );
- 
-    renderizarProdutos(produtosFiltrados);
+    const produtosFiltrados = produtos.filter(p =>
+    returnp.nome.toLowerCase().includes(termo)
+                                              })
+renderizarProdutos(produtosFiltrados);
 });
  
 
