@@ -11,14 +11,14 @@ function renderizarProdutos(lista) {
     const container = document.getElementById("listaProdutos");
     container.innerHTML = ""; // Limpa a tela
  
-    // Desafio: Se a lista estiver vazia [cite: 36, 37]
+
     if (lista.length === 0) {
         container.innerHTML = "<p>Putz! Não encontramos esse componente no estoque.</p>";
         return;
     }
  
     lista.forEach(produto => {
-        // Cria o card usando Template Literals [cite: 35]
+     
         container.innerHTML += `
             <div class="card">
                 <h3>${produto.nome}</h3>
@@ -41,6 +41,6 @@ inputBusca.addEventListener("input", (e) => {
     renderizarProdutos(produtosFiltrados);
 });
  
-// Inicializa a tela com todos os produtos
+
 renderizarProdutos(produtos);
  
